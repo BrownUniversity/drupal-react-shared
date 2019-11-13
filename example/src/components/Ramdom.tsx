@@ -3,7 +3,7 @@ import { useFetch } from "../../../dist";
 import api from "../api";
 
 const Random = () => {
-  const { loading, error, data: randomJoke } = useFetch({
+  const { loading, error, data: randomJoke, refetch } = useFetch({
     apiMethod: api.getRandomJoke
   });
 
@@ -15,7 +15,12 @@ const Random = () => {
     return <p>Error fetching ramdom joke!</p>;
   }
 
-  return <p>{randomJoke}</p>;
+  return (
+    <div>
+      <p>{randomJoke}</p>
+      <button onClick={() => refetch()}>Another!</button>
+    </div>
+  );
 };
 
 export default Random;
