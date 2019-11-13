@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
-interface Argss {
+interface Args {
   apiMethod: Function;
   params?: object;
   mungeResponse?: Function | null;
   initialData?: any;
   initialError?: any;
   initialLoading?: boolean;
+  dependencies?: Array<any>;
 }
 
 const useFetch = ({
@@ -15,8 +16,9 @@ const useFetch = ({
   mungeResponse = null,
   initialData = null,
   initialError = null,
-  initialLoading = true
-}: Argss) => {
+  initialLoading = true,
+  dependencies = []
+}: Args) => {
   const [data, setData] = useState(initialData);
   const [error, setError] = useState(initialError);
   const [loading, setLoading] = useState(initialLoading);
@@ -38,7 +40,7 @@ const useFetch = ({
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, dependencies);
 
   return { data, error, loading };
 };
