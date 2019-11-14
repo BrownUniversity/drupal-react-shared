@@ -51,7 +51,7 @@ const useFetch = ({
 
   const refetch = ({
     params: nextParams = {},
-    withLoading = false
+    withLoading = true
   }: RefetchProps = {}) => {
     if (nextParams) {
       params.current = nextParams;
