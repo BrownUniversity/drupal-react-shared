@@ -1,5 +1,1 @@
-import * as React from "react";
-
-export const Thing = () => {
-  return <div>Thing</div>;
-};
+export { default as useFetch } from "./hooks/useFetch";
