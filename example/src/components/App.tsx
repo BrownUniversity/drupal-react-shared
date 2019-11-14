@@ -13,7 +13,9 @@ const App = () => {
     <>
       <h1>Dad Jokes</h1>
       <select value={view} onChange={event => setView(event.target.value)}>
-        <option value={SELECT}>select...</option>
+        <option disabled value={SELECT}>
+          select...
+        </option>
         <option value={RANDOM}>Random</option>
         <option value={SEARCH}>Search</option>
       </select>
