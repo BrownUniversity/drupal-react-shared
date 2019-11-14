@@ -66,6 +66,12 @@ npm run lint
 npm test
 ```
 
+### Watch Tests:
+
+```sh
+npm run test:watch
+```
+
 ---
 
 ## Deployment

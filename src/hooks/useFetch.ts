@@ -1,33 +1,31 @@
 import { useEffect, useRef, useState } from "react";
 
 interface UseFetchProps {
-  apiMethod: Function;
-  params?: object;
-  mungeResponse?: Function | null;
-  withInitialFetch?: boolean;
-  initialData?: any;
-  initialError?: any;
   initialLoading?: boolean;
+  initialError?: any;
+  initialData?: any;
+  apiMethod: Function;
+  params?: any;
+  mungeResponse?: Function | null;
 }
 
 interface RefetchProps {
-  params?: object;
+  params?: any;
   withLoading?: boolean;
 }
 
 const useFetch = ({
+  initialLoading = true,
+  initialError = null,
+  initialData = null,
   apiMethod,
   params: initialParams = {},
-  mungeResponse = null,
-  withInitialFetch = true,
-  initialData = null,
-  initialError = null,
-  initialLoading = true
+  mungeResponse = null
 }: UseFetchProps) => {
-  const params = useRef(initialParams);
-  const [data, setData] = useState(initialData);
-  const [error, setError] = useState(initialError);
   const [loading, setLoading] = useState(initialLoading);
+  const [error, setError] = useState(initialError);
+  const [data, setData] = useState(initialData);
+  const params = useRef(initialParams);
 
   const fetch = async () => {
     try {
@@ -50,7 +48,7 @@ const useFetch = ({
   };
 
   const refetch = ({
-    params: nextParams = {},
+    params: nextParams = null,
     withLoading = true
   }: RefetchProps = {}) => {
     if (nextParams) {
@@ -65,12 +63,12 @@ const useFetch = ({
   };
 
   useEffect(() => {
-    if (withInitialFetch) {
+    if (initialLoading) {
       fetchWithLoading();
     }
   }, []);
 
-  return { data, error, loading, refetch };
+  return { loading, error, data, refetch };
 };
 
 export default useFetch;

@@ -12,6 +12,7 @@
   "scripts": {
     "lint": "tsdx lint",
     "test": "tsdx test --env=jsdom",
+    "test:watch": "npm run test -- --watch",
     "start": "tsdx watch",
     "build": "tsdx build"
   },
@@ -19,12 +20,14 @@
     "react": ">=16"
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^3.2.1",
     "@types/jest": "^24.0.23",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
     "husky": "^3.0.9",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-test-renderer": "^16.11.0",
     "tsdx": "^0.11.0",
     "tslib": "^1.10.0",
     "typescript": "^3.7.2"
