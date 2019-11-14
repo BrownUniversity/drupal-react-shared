@@ -1,5 +1,5 @@
 import * as React from "react";
-import Random from "./Ramdom";
+import Random from "./Random";
 import Search from "./Search";
 
 const SELECT = "SELECT";
