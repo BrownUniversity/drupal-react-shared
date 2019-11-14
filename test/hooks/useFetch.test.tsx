@@ -26,7 +26,7 @@ describe("useFetch", () => {
   test("overrides initial* props when provided", () => {
     const initialLoading = false;
     const initialError = ":-(";
-    const initialData = ["Initiail", "data"];
+    const initialData = ["Initial", "data"];
     const { result } = renderHook(props => useFetch(props), {
       initialProps: {
         apiMethod,

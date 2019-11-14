@@ -19,7 +19,7 @@ export default {
       const response = await adapter.get(`/search?term=${query}`);
       return response.data.results;
     } catch (error) {
-      throw new Error("Error fetching joke seach results");
+      throw new Error("Error fetching joke search results");
     }
   }
 };

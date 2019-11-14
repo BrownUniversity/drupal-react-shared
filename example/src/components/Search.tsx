@@ -4,8 +4,8 @@ import api from "../api";
 
 const Search = () => {
   const { loading, error, data: searchResults, refetch } = useFetch({
-    apiMethod: api.getJokeSearchResults,
-    initialLoading: false
+    initialLoading: false,
+    apiMethod: api.getJokeSearchResults
   });
   const [query, setQuery] = React.useState("");
   const handleSearch = () => refetch({ params: { query } });
