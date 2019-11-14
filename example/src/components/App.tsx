@@ -3,7 +3,7 @@ import Random from "./Random";
 import Search from "./Search";
 
 const SELECT = "SELECT";
-const RANDOM = "RAMDOM";
+const RANDOM = "RANDOM";
 const SEARCH = "SEARCH";
 
 const App = () => {

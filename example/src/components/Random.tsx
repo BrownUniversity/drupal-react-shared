@@ -12,7 +12,7 @@ const Random = () => {
   }
 
   if (error) {
-    return <p>Error fetching ramdom joke!</p>;
+    return <p>Error fetching random joke!</p>;
   }
 
   return (
