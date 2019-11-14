@@ -25,7 +25,6 @@ const Search = () => {
       {(() => {
         if (loading) {
           return <p>Searching jokes...</p>;
-        } else {
         }
 
         if (error) {
