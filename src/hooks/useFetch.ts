@@ -4,11 +4,10 @@ interface UseFetchProps {
   apiMethod: Function;
   params?: object;
   mungeResponse?: Function | null;
+  withInitialFetch?: boolean;
   initialData?: any;
   initialError?: any;
   initialLoading?: boolean;
-  initialFetch?: boolean;
-  dependencies?: Array<any>;
 }
 
 interface RefetchProps {
@@ -20,11 +19,10 @@ const useFetch = ({
   apiMethod,
   params: initialParams = {},
   mungeResponse = null,
+  withInitialFetch = true,
   initialData = null,
   initialError = null,
-  initialLoading = true,
-  initialFetch = true,
-  dependencies = []
+  initialLoading = true
 }: UseFetchProps) => {
   const params = useRef(initialParams);
   const [data, setData] = useState(initialData);
@@ -66,11 +64,11 @@ const useFetch = ({
     }
   };
 
-  if (initialFetch) {
-    useEffect(() => {
+  useEffect(() => {
+    if (withInitialFetch) {
       fetchWithLoading();
-    }, dependencies);
-  }
+    }
+  }, []);
 
   return { data, error, loading, refetch };
 };
