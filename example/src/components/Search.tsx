@@ -8,18 +8,18 @@ const Search = () => {
     withInitialFetch: false,
     initialLoading: false
   });
-  const [value, setValue] = React.useState("");
-  const handleSubmit = () => refetch({ params: { term: value } });
+  const [query, setQuery] = React.useState("");
+  const handleSearch = () => refetch({ params: { query } });
 
   return (
     <div style={{ marginTop: 10 }}>
       <form onSubmit={event => event.preventDefault()}>
         <input
           placeholder="query..."
-          value={value}
-          onChange={event => setValue(event.target.value)}
+          value={query}
+          onChange={event => setQuery(event.target.value)}
         />
-        <button type="submit" onClick={handleSubmit}>
+        <button type="submit" onClick={handleSearch}>
           Submit
         </button>
       </form>

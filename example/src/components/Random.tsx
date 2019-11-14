@@ -18,7 +18,7 @@ const Random = () => {
   return (
     <div>
       <p>{randomJoke}</p>
-      <button onClick={() => refetch()}>Another!</button>
+      <button onClick={() => refetch({ withLoading: false })}>Another!</button>
     </div>
   );
 };

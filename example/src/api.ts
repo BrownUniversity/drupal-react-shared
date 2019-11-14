@@ -14,9 +14,9 @@ export default {
       throw new Error("Error fetching random joke");
     }
   },
-  async getJokeSearchResults({ term }) {
+  async getJokeSearchResults({ query }) {
     try {
-      const response = await adapter.get(`/search?term=${term}`);
+      const response = await adapter.get(`/search?term=${query}`);
       return response.data.results;
     } catch (error) {
       throw new Error("Error fetching joke seach results");
