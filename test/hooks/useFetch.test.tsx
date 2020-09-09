@@ -83,7 +83,7 @@ describe("useFetch", () => {
     test("applies mungeResponse when provided", async () => {
       const response = [1, 2, 3];
       apiMethod.mockResolvedValueOnce(response);
-      const mungeResponse = (res: [number]) => res.map(n => n + 1);
+      const mungeResponse = (res: number[]) => res.map(n => n + 1);
       const { result, waitForNextUpdate } = renderHook(
         props => useFetch(props),
         {
@@ -196,7 +196,7 @@ describe("useFetch", () => {
     test("applies mungeResponse when provided", async () => {
       const response = [2, 3, 4];
       apiMethod.mockResolvedValueOnce(response);
-      const mungeResponse = (res: [number]) => res.map(n => n - 1);
+      const mungeResponse = (res: number[]) => res.map(n => n - 1);
       const { result, waitForNextUpdate } = renderHook(
         props => useFetch(props),
         {

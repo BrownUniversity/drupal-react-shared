@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 
 // A type of promise-like that resolves synchronously and supports only one observer
 
@@ -45,8 +45,7 @@ var useFetch = function useFetch(_ref) {
       setData = _useState3[1];
 
   var params = useRef(initialParams);
-
-  var fetch = function fetch() {
+  var fetch = useCallback(function () {
     try {
       var _temp2 = _catch(function () {
         return Promise.resolve(apiMethod(params.current)).then(function (response) {
@@ -64,9 +63,8 @@ var useFetch = function useFetch(_ref) {
     } catch (e) {
       return Promise.reject(e);
     }
-  };
-
-  var fetchWithLoading = function fetchWithLoading() {
+  }, [apiMethod, mungeResponse]);
+  var fetchWithLoading = useCallback(function () {
     try {
       setLoading(true);
       return Promise.resolve(fetch()).then(function () {
@@ -75,7 +73,7 @@ var useFetch = function useFetch(_ref) {
     } catch (e) {
       return Promise.reject(e);
     }
-  };
+  }, [fetch]);
 
   var refetch = function refetch(_temp3) {
     var _ref2 = _temp3 === void 0 ? {} : _temp3,
@@ -99,7 +97,7 @@ var useFetch = function useFetch(_ref) {
     if (initialLoading) {
       fetchWithLoading();
     }
-  }, []);
+  }, [initialLoading, fetchWithLoading]);
   return {
     loading: loading,
     error: error,

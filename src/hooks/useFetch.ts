@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface UseFetchProps {
   initialLoading?: boolean;
@@ -27,7 +27,7 @@ const useFetch = ({
   const [data, setData] = useState(initialData);
   const params = useRef(initialParams);
 
-  const fetch = async () => {
+  const fetch = useCallback(async () => {
     try {
       const response = await apiMethod(params.current);
 
@@ -39,13 +39,13 @@ const useFetch = ({
     } catch (error) {
       setError(error);
     }
-  };
+  }, [apiMethod, mungeResponse]);
 
-  const fetchWithLoading = async () => {
+  const fetchWithLoading = useCallback(async () => {
     setLoading(true);
     await fetch();
     setLoading(false);
-  };
+  }, [fetch]);
 
   const refetch = ({
     params: nextParams = null,
@@ -66,7 +66,7 @@ const useFetch = ({
     if (initialLoading) {
       fetchWithLoading();
     }
-  }, []);
+  }, [initialLoading, fetchWithLoading]);
 
   return { loading, error, data, refetch };
 };

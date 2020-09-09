@@ -30,13 +30,13 @@ These libraries are not bundled with Drupal React Shared and are required at run
 
 ## Development
 
-### Install dependencies:
+### Install dependencies
 
 ```sh
 npm install
 ```
 
-### Recommended workflow:
+### Recommended workflow
 
 Run TSDX in one terminal:
 
@@ -54,19 +54,19 @@ npm install
 npm start
 ```
 
-### Lint:
+### Lint
 
-```
+```sh
 npm run lint
 ```
 
-### Test:
+### Test
 
 ```sh
 npm test
 ```
 
-### Watch Tests:
+### Watch Tests
 
 ```sh
 npm run test:watch
