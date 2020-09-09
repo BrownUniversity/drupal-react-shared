@@ -12,13 +12,11 @@ Common code for Drupal & React projects.
 
 ```sh
 // npm
-npm i git+https://bitbucket.brown.edu/scm/dreact/drupal-react-shared.git#semver:^1.0
+npm i git@github.com:BrownUniversity/drupal-react-shared.git
 
 // yarn
-yarn add git+https://bitbucket.brown.edu/scm/dreact/drupal-react-shared.git#^1.0
+yarn add git@github.com:BrownUniversity/drupal-react-shared.git
 ```
-
-_Ensure you're on the network and that your SSH key has been added to the ssh-agent (`ssh-add ~/.ssh/id_rsa`) and uploaded to [bitbucket.brown.edu](https://bitbucket.brown.edu/plugins/servlet/ssh/account/keys)._
 
 #### Required Peer Dependencies
 
