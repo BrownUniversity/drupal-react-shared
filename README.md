@@ -82,7 +82,7 @@ To publish a new version, do the following:
 4. `npm run build`
 5. Commit changes
 6. Tag new version
-7. Push master and tags to all remotes
+7. Push main and tags to all remotes
 
 ---
 
