@@ -88,4 +88,4 @@ To publish a new version, do the following:
 
 ## Boilerplate
 
-This project was bootstraped with [TSDX](https://github.com/jaredpalmer/tsdx).
+This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
